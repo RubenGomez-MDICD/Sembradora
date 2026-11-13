@@ -39,3 +39,7 @@ El diseño vive en Figma («Página Web Educación Financiera»). Los tokens del
 ## Publicación
 
 Se publica en Vercel desde la rama `main`. Cada cambio en GitHub genera una vista previa.
+
+## Licencia
+
+El código está bajo la [licencia MIT](LICENSE). Las librerías que usa tienen licencias compatibles: Next.js y Chakra UI (MIT), Lucide (ISC), Nunito y Open Sans (SIL Open Font License). Los datos del tabulador de Salario Digno pertenecen a CACEH y se citan como fuente.

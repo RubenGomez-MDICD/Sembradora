@@ -92,7 +92,7 @@ Los valores que cambian cada año (salario mínimo, tabulador) van en un archivo
 Meta: WCAG 2.2 nivel AA.
 
 - Áreas táctiles de al menos 44 px (botones de 44 y 48 px).
-- Contraste medido sobre las superficies reales. Hay tres tokens por ajustar (ver pendientes).
+- Contraste medido sobre las superficies reales. El 12 de noviembre de 2026 se ajustaron tres colores en Figma y en el código: `content/subtle` #7D7A76 → #716E6A (4.54:1 sobre `surface/subtle`), `border/default` #9C9894 → #8F8B88 (3.3:1, mínimo 3:1 para bordes de controles) y `feedback/error/fg` #C83C31 → #C03A2F (4.6:1 sobre su fondo).
 - Foco visible en todo, orden de foco lógico, Drawer y diálogos atrapan el foco.
 - Avisos (Toast y SaveStatus) en regiones `aria-live="polite"`, solo para lo que causa la usuaria.
 - Nada depende solo del color: los términos del glosario llevan subrayado y las barras llevan monto escrito.
@@ -122,10 +122,16 @@ Después, por secciones: Inicio y Aprende → Mi sueldo y Mis derechos → Mis a
 
 ## 11. Pendientes y decisiones abiertas
 
-- **Contraste**: `content/subtle` (#7D7A76) y `border/default` (#9C9894) no alcanzan el contraste mínimo en algunas superficies; `feedback/error/fg` queda justo debajo sobre su fondo. Propuesta: #716E6A, #8F8B88 y #C03A2F. Decidir y actualizar Figma y código a la vez.
-- **Fórmula de Mi sueldo**: falta la regla exacta de modulación por tareas acumuladas y frecuencia.
+- **Fórmula de Mi sueldo** (en pausa): falta la regla exacta de modulación por tareas acumuladas y frecuencia.
 - **Montos legales**: validar liquidación y finiquito con CACEH o PROFEDET antes de publicar.
-- **Licencia del código**: elegir una (por ejemplo, MIT) si el repositorio será público.
+- **Licencia de los contenidos**: el código usa la licencia MIT. Los textos, ilustraciones y la identidad del sitio pueden llevar una licencia aparte (por ejemplo, Creative Commons BY 4.0).
 - **Analítica**: decidir si se usa y con qué herramienta.
 - **Dominio**: el de Vercel (`*.vercel.app`) o uno propio.
 - **Ilustraciones**: dirección de estilo pendiente.
+
+## 12. Para actualizar en el documento de tesis
+
+Cambios ya hechos en el diseño y el código que la tesis debe reflejar cuando se redacte o revise el apartado correspondiente:
+
+- **Paleta (9.4.3)**: secundario cambiado de naranja a morado (#7759B0) porque se confundía con el color de error; ajuste de contraste en `content/subtle`, `border/default` y `feedback/error/fg` (valores en la sección 7).
+- **Desarrollo técnico (9.4.4)**: stack, guardado local, respaldo cifrado y licencia MIT del código.
