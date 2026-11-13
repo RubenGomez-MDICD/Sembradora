@@ -15,6 +15,8 @@ export type RouteInfo = {
   figma: string[];
   /** Ruta hija que no aparece en la lista de su sección (pasos intermedios). */
   hidden?: boolean;
+  /** Ya tiene su página en src/app; el esqueleto deja de generarla. */
+  lista?: boolean;
 };
 
 export const SECTIONS: Record<SectionId, { label: string; path: string; summary: string; loop?: string }> = {
@@ -28,7 +30,7 @@ export const SECTIONS: Record<SectionId, { label: string; path: string; summary:
 
 export const ROUTES: RouteInfo[] = [
   // Inicio
-  { path: "/fuentes", section: "inicio", title: "Fuentes y créditos", description: "De dónde salen los datos y los cálculos.", figma: ["IN-3"] },
+  { path: "/fuentes", lista: true, section: "inicio", title: "Fuentes y créditos", description: "De dónde salen los datos y los cálculos.", figma: ["IN-3"] },
 
   // Mi sueldo
   { path: "/mi-sueldo", section: "mi-sueldo", title: "¿Cuánto te toca por tu trabajo?", description: "Calcula un sueldo justo según lo que haces en la casa.", figma: ["MS-0"] },
@@ -75,9 +77,9 @@ export const ROUTES: RouteInfo[] = [
   { path: "/mis-derechos/imss", section: "mis-derechos", title: "El IMSS", description: "Qué te da y cómo te registran.", figma: ["DR-4", "DR-4b", "DR-4c"] },
 
   // Aprende
-  { path: "/aprende", section: "aprende", title: "Aprende", description: "Las palabras del banco y de la ley, dichas como las decimos.", figma: ["AP-0"] },
-  { path: "/aprende/glosario", section: "aprende", title: "Glosario", description: "Palabras con su explicación, filtros por tema.", figma: ["AP-1", "AP-2", "AP-3"] },
-  { path: "/aprende/apoyos", section: "aprende", title: "¿Quién te apoya?", description: "Organizaciones que te orientan gratis.", figma: ["AP-4"] },
+  { path: "/aprende", lista: true, section: "aprende", title: "Aprende", description: "Las palabras del banco y de la ley, dichas como las decimos.", figma: ["AP-0"] },
+  { path: "/aprende/glosario", lista: true, section: "aprende", title: "Glosario", description: "Palabras con su explicación, filtros por tema.", figma: ["AP-1", "AP-2", "AP-3"] },
+  { path: "/aprende/apoyos", lista: true, section: "aprende", title: "¿Quién te apoya?", description: "Organizaciones que te orientan gratis.", figma: ["AP-4"] },
 ];
 
 export const findRoute = (path: string) => ROUTES.find((r) => r.path === path);

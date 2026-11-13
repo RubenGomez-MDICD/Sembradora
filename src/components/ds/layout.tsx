@@ -28,11 +28,11 @@ export function StepsBar({ total, current }: { total: number; current: number })
 }
 
 /* Accordion.Item (Figma: «Accordion.Item»). Varias preguntas abiertas a la vez. */
-export function AccordionList({ items, defaultOpen = [] }: { items: { value: string; title: string; content: React.ReactNode }[]; defaultOpen?: string[] }) {
+export function AccordionList({ items, defaultOpen = [] }: { items: { value: string; title: string; content: React.ReactNode; id?: string }[]; defaultOpen?: string[] }) {
   return (
     <Accordion.Root multiple collapsible defaultValue={defaultOpen} borderWidth="1px" borderColor="border.subtle" borderRadius="l3" overflow="hidden">
       {items.map((it) => (
-        <Accordion.Item key={it.value} value={it.value} bg="surface.panel" borderBottomWidth="1px" borderColor="border.subtle" _last={{ borderBottomWidth: "0" }} _open={{ bg: "brand.primary.subtle" }}>
+        <Accordion.Item key={it.value} data-ancla={it.id} value={it.value} scrollMarginTop="20" bg="surface.panel" borderBottomWidth="1px" borderColor="border.subtle" _last={{ borderBottomWidth: "0" }} _open={{ bg: "brand.primary.subtle" }}>
           <Accordion.ItemTrigger px="4" py="4" gap="3" textStyle="h4" cursor="pointer" minH="11">
             <Text as="span" flex="1" textAlign="left">
               {it.title}

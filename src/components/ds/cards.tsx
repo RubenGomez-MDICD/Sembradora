@@ -2,16 +2,25 @@
  * Componentes de presentación sin estado. Este archivo no lleva "use client"
  * para que las páginas del servidor puedan pasarles íconos de Lucide como props.
  */
-import { Box, EmptyState as CEmptyState, Flex, LinkBox, LinkOverlay, Stack, Text, VStack } from "@chakra-ui/react";
+import { Box, EmptyState as CEmptyState, Flex, LinkBox, LinkOverlay, Stack, Text, VStack, VisuallyHidden } from "@chakra-ui/react";
 import NextLink from "next/link";
-import { ChevronRight, type LucideIcon } from "lucide-react";
+import { ChevronRight, ExternalLink, type LucideIcon } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
 /* Card (Figma: «Card»). Tarjeta-enlace con ícono, eyebrow, título,      */
 /* descripción y chevron. Toda la tarjeta es tocable.                    */
 /* ------------------------------------------------------------------ */
 
-export function LinkCard({ href, title, description, eyebrow, icon: Icon, external }: { href: string; title: string; description?: string; eyebrow?: string; icon?: LucideIcon; external?: boolean }) {
+/**
+ * Sin `href` se muestra como tarjeta informativa, sin chevron.
+ * Con `external` abre en otra pestaña y lo avisa a los lectores de pantalla.
+ */
+export function LinkCard({ href, title, description, eyebrow, icon: Icon, external }: { href?: string; title: string; description?: string; eyebrow?: string; icon?: LucideIcon; external?: boolean }) {
+  const titulo = (
+    <Text as="span" textStyle="h4">
+      {title}
+    </Text>
+  );
   return (
     <LinkBox
       as="article"
@@ -21,7 +30,7 @@ export function LinkCard({ href, title, description, eyebrow, icon: Icon, extern
       borderRadius="l3"
       p="4"
       transition="background 120ms"
-      _hover={{ bg: "surface.subtle" }}
+      _hover={href ? { bg: "surface.subtle" } : undefined}
       _focusWithin={{ outline: "2px solid", outlineColor: "interactive.focusRing", outlineOffset: "2px" }}
     >
       <Flex align="center" gap="3">
@@ -36,30 +45,31 @@ export function LinkCard({ href, title, description, eyebrow, icon: Icon, extern
               {eyebrow}
             </Text>
           ) : null}
-          <LinkOverlay asChild>
-            {external ? (
-              <a href={href} target="_blank" rel="noreferrer">
-                <Text as="span" textStyle="h4">
-                  {title}
-                </Text>
-              </a>
-            ) : (
-              <NextLink href={href}>
-                <Text as="span" textStyle="h4">
-                  {title}
-                </Text>
-              </NextLink>
-            )}
-          </LinkOverlay>
+          {!href ? (
+            titulo
+          ) : (
+            <LinkOverlay asChild>
+              {external ? (
+                <a href={href} target="_blank" rel="noreferrer">
+                  {titulo}
+                  <VisuallyHidden> (se abre en otra pestaña)</VisuallyHidden>
+                </a>
+              ) : (
+                <NextLink href={href}>{titulo}</NextLink>
+              )}
+            </LinkOverlay>
+          )}
           {description ? (
             <Text textStyle="bodySm" color="content.muted">
               {description}
             </Text>
           ) : null}
         </Stack>
-        <Box color="content.muted" flexShrink="0">
-          <ChevronRight size={20} aria-hidden />
-        </Box>
+        {href ? (
+          <Box color="content.muted" flexShrink="0">
+            {external ? <ExternalLink size={18} aria-hidden /> : <ChevronRight size={20} aria-hidden />}
+          </Box>
+        ) : null}
       </Flex>
     </LinkBox>
   );
