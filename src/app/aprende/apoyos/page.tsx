@@ -8,13 +8,10 @@ import { Screen } from "@/components/screen";
 
 export const metadata: Metadata = { title: "¿Quién te apoya?" };
 
-/**
- * Figma: AP-4 · Quién te apoya.
- * Pendiente: SINACTRAHO no tiene una página oficial verificada; por ahora su tarjeta no es enlace.
- */
+/** Figma: AP-4 · Quién te apoya */
 const APOYOS = [
   { icon: Users, eyebrow: "Asesoría y cursos", title: "CACEH", description: "Centro de Apoyo y Capacitación para Empleadas del Hogar. Orientación, cursos y modelos de contrato.", href: "https://caceh.org.mx" },
-  { icon: Handshake, eyebrow: "Organización", title: "SINACTRAHO", description: "Sindicato Nacional de Trabajadores y Trabajadoras del Hogar. Te puedes afiliar." },
+  { icon: Handshake, eyebrow: "Organización", title: "SINACTRAHO", description: "Sindicato Nacional de Trabajadores y Trabajadoras del Hogar. Te puedes afiliar.", href: "http://sinactraho.org/" },
   { icon: Scale, eyebrow: "Asesoría legal gratis", title: "PROFEDET", description: "Procuraduría Federal de la Defensa del Trabajo. Si te despiden o no te pagan lo que te toca.", href: "https://www.gob.mx/profedet" },
   { icon: HeartPulse, eyebrow: "Seguridad social", title: "IMSS", description: "Registro y servicios para personas trabajadoras del hogar.", href: "https://www.imss.gob.mx/personas-trabajadoras-hogar" },
   { icon: Landmark, eyebrow: "Bancos y préstamos", title: "CONDUSEF", description: "Si tienes un problema con un banco, una tarjeta o un préstamo.", href: "https://www.condusef.gob.mx" },

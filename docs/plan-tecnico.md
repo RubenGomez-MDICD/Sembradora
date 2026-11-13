@@ -135,7 +135,6 @@ Después, por secciones: Inicio y Aprende → Mi sueldo y Mis derechos → Mis a
 - **Dominio**: el de Vercel (`*.vercel.app`) o uno propio.
 - **Ilustraciones**: dirección de estilo pendiente.
 - **Glosario**: los 42 textos de `src/content/glosario.ts` son un borrador con su artículo de ley; validarlos con CACEH o PROFEDET.
-- **SINACTRAHO**: falta una página oficial verificada para enlazarla en ¿Quién te apoya?
 
 ## 12. Para actualizar en el documento de tesis
 
