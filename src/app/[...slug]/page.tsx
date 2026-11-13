@@ -14,7 +14,7 @@ import { ROUTES, SECTIONS, findRoute, sectionChildren } from "@/lib/routes";
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return ROUTES.map((r) => ({ slug: r.path.split("/").filter(Boolean) }));
+  return ROUTES.filter((r) => !r.lista).map((r) => ({ slug: r.path.split("/").filter(Boolean) }));
 }
 
 type Params = { params: Promise<{ slug: string[] }> };

@@ -44,7 +44,7 @@ Reglas:
 
 ## 4. Guardado en el teléfono
 
-Base de datos `sembradora` en IndexedDB, con Dexie. Todos los registros tienen `id` (UUID), `creado` y `actualizado` (fecha ISO). Los montos se guardan en centavos enteros para evitar errores de redondeo.
+Base de datos `sembradora` en IndexedDB, con Dexie (código en `src/lib/db`). Todos los registros tienen `id` (UUID), `creado`, `actualizado` (fecha ISO) y, si se borraron, `borrado`. Los montos se guardan en centavos enteros para evitar errores de redondeo.
 
 | Tabla | Para qué | Campos principales |
 | --- | --- | --- |
@@ -55,13 +55,17 @@ Base de datos `sembradora` en IndexedDB, con Dexie. Todos los registros tienen `
 | `tandas` | Tandas sumadas a una meta | monto, frecuencia, personas, turno, inicio, metaId |
 | `topes` | Topes semanales por categoría | categoriaId, montoSemanal |
 | `calculos` | Resultados de Mi sueldo y Mis derechos | tipo, datos de entrada, resultado, fecha |
-| `ajustes` | Preferencias | pin (solo su huella cifrada), ultimoRespaldo |
+| `borradores` | Avance de cada flujo de varios pasos | el `id` es el nombre del flujo; datos |
+| `ajustes` | Preferencias | el `id` es la clave: pin (solo su huella cifrada), ultimoRespaldo |
 
 Reglas:
 
 - El avance de cada flujo se guarda solo al cambiar un campo. El componente SaveStatus muestra «Guardando», «Se guardó» o el error.
 - Un préstamo recibido crea un ingreso y una deuda. Cada pago de una deuda crea un gasto en la categoría Deudas.
 - Borrar un movimiento usa Deshacer durante unos segundos en lugar de pedir confirmación.
+- Borrar no quita el registro: lo marca con `borrado`. Así Deshacer lo regresa y, al juntar un respaldo viejo, lo borrado no revive.
+- Las categorías de fábrica tienen `id` fijos (`comida`, `pago-trabajo`…) para que dos respaldos se junten sin duplicarlas. «Deudas» está oculta: se usa sola al anotar un pago.
+- Las pruebas (`npm test`, con Vitest y fake-indexeddb) cubren cada regla de esta sección y de la sección 5 con los datos de ejemplo de Figma.
 
 ## 5. Respaldo
 
@@ -118,6 +122,8 @@ Meta: WCAG 2.2 nivel AA.
 3. Componentes de la librería en código: Button, Card, Stat, Alert, Toast, Input, Select, RadioCard, CheckboxCard, Progress, DataList, Steps, SegmentGroup, AppHeader, SaveStatus, DebtCard y Chart.
 4. Guardado local con Dexie y pruebas del modelo de datos.
 
+Estado al 13 de noviembre de 2026: fases 1 a 4 terminadas; Inicio y Aprende construidas.
+
 Después, por secciones: Inicio y Aprende → Mi sueldo y Mis derechos → Mis ahorros → Mi dinero y deudas → Respaldo.
 
 ## 11. Pendientes y decisiones abiertas
@@ -128,6 +134,7 @@ Después, por secciones: Inicio y Aprende → Mi sueldo y Mis derechos → Mis a
 - **Analítica**: decidir si se usa y con qué herramienta.
 - **Dominio**: el de Vercel (`*.vercel.app`) o uno propio.
 - **Ilustraciones**: dirección de estilo pendiente.
+- **Glosario**: los 42 textos de `src/content/glosario.ts` son un borrador con su artículo de ley; validarlos con CACEH o PROFEDET.
 
 ## 12. Para actualizar en el documento de tesis
 

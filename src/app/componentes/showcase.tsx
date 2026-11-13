@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Box, Button, Heading, IconButton, Stack, Text } from "@chakra-ui/react";
 import { ArrowLeft, Baby, BookOpen, Bus, ChevronRight, Coins, CreditCard, Ellipsis, Handshake, HandCoins, HeartPulse, House, Plus, Smartphone, Sprout, Store, Trash2, Users, Utensils, Wallet } from "lucide-react";
 import { AppHeader } from "@/components/app-header";
+import { useGlosario } from "@/components/glosario";
 import { Screen } from "@/components/screen";
 import {
   AccordionList,
@@ -55,6 +56,7 @@ export function Showcase() {
   const [icon, setIcon] = useState("book");
   const [sheet, setSheet] = useState(false);
   const [tipo, setTipo] = useState("gasto");
+  const { abrir } = useGlosario();
 
   return (
     <>
@@ -179,9 +181,9 @@ export function Showcase() {
         <Section figma="DataList.Item · plain, glossary">
           <DataList
             rows={[
-              { label: "Aguinaldo", value: "$6,750", note: "15 días de sueldo · art. 87 LFT", onTermClick: () => setSheet(true) },
+              { label: "Aguinaldo", value: "$6,750", note: "15 días de sueldo · art. 87 LFT", onTermClick: () => abrir("aguinaldo") },
               { label: "Vacaciones pagadas", value: "$8,100", note: "18 días · art. 76 LFT" },
-              { label: "Prima vacacional", value: "$2,025", note: "25 % de tus vacaciones · art. 80 LFT", onTermClick: () => setSheet(true) },
+              { label: "Prima vacacional", value: "$2,025", note: "25 % de tus vacaciones · art. 80 LFT", onTermClick: () => abrir("prima-vacacional") },
             ]}
           />
         </Section>
