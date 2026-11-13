@@ -40,7 +40,7 @@ Reglas:
 
 - Un paso, una ruta. Así funciona el botón «atrás» del teléfono y se puede retomar un flujo.
 - Los estados de una misma pantalla (por ejemplo, balance vacío, con datos o en negativo) viven en la misma ruta.
-- Mientras una ruta no tenga su pantalla, se muestra un esqueleto navegable que indica su diseño en Figma (`src/app/[...slug]/page.tsx`).
+- Todas las rutas tienen su pantalla (13 de noviembre de 2026); el esqueleto navegable que se usó mientras tanto ya se quitó.
 
 ## 4. Guardado en el teléfono
 
@@ -75,7 +75,10 @@ Dos caminos, los dos opcionales:
 2. **Código de respaldo**: el teléfono cifra los datos con el código antes de mandarlos, y el servidor solo guarda texto cifrado que no puede leer.
    - Código de 3 grupos sin letras que se confunden (sin O, 0, I ni 1). Se acepta en minúsculas, con espacios o sin guiones.
    - Del código salen dos cosas por separado: un identificador para buscar el respaldo y la llave para descifrarlo (Web Crypto: PBKDF2 y AES-GCM).
-   - El servidor es una función de Vercel con una base de datos del Marketplace de Vercel (por ejemplo, Upstash o Neon).
+   - El servidor es una función de Vercel (`src/app/api/respaldo/route.ts`) con Redis de Upstash, conectado desde el Marketplace de Vercel. Lee `KV_REST_API_URL` y `KV_REST_API_TOKEN` (o `UPSTASH_REDIS_REST_URL` y `UPSTASH_REDIS_REST_TOKEN`). Sin esas variables, la pantalla avisa que el código no está activo y ofrece el archivo.
+   - Guarda solo el identificador, el texto cifrado, la fecha y el número de movimientos, por 400 días desde la última actualización. Limita a 30 consultas por minuto por dirección.
+   - Con código guardado en el teléfono, el respaldo se actualiza solo al abrir el sitio, al volver a internet y al salir de la pestaña (como mucho cada 2 minutos).
+   - El código, su fecha y el PIN no viajan en ningún respaldo. El archivo no va cifrado para poder recuperarlo sin internet ni código.
 
 Al recuperar en un teléfono que ya tiene datos se elige entre **juntar** (unión por `id`; gana el registro con `actualizado` más reciente) o **reemplazar** (botón de peligro y opción de guardar antes un archivo).
 
@@ -130,7 +133,7 @@ Meta: WCAG 2.2 nivel AA.
 3. Componentes de la librería en código: Button, Card, Stat, Alert, Toast, Input, Select, RadioCard, CheckboxCard, Progress, DataList, Steps, SegmentGroup, AppHeader, SaveStatus, DebtCard y Chart.
 4. Guardado local con Dexie y pruebas del modelo de datos.
 
-Estado al 13 de noviembre de 2026: fases 1 a 4 terminadas; Inicio, Aprende, Mis derechos y Mis ahorros construidas.
+Estado al 13 de noviembre de 2026: todas las secciones construidas. Falta activar el almacén del respaldo con código en Vercel (ver sección 5).
 
 Después, por secciones: Inicio y Aprende → Mi sueldo y Mis derechos → Mis ahorros → Mi dinero y deudas → Respaldo.
 
