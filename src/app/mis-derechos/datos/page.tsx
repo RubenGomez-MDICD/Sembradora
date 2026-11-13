@@ -12,7 +12,7 @@ import { useFlujo } from "@/lib/db/use-flujo";
 import { diaISO } from "@/lib/fechas";
 import { formatFechaLarga, formatMoney, parsePesos } from "@/lib/format";
 import { FLUJO_DERECHOS, validarDatos, type DatosDerechos, type ErroresDerechos } from "../flujo";
-import { Paso } from "../paso";
+import { Paso } from "@/components/paso";
 
 /** Último sueldo diario calculado en Mi sueldo, si existe (DR-1c). */
 function useSueldoDeMiSueldo() {

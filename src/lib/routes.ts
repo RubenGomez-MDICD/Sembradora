@@ -58,14 +58,14 @@ export const ROUTES: RouteInfo[] = [
   { path: "/mi-dinero/pin", section: "mi-dinero", title: "Proteger con PIN", description: "PIN opcional para teléfonos compartidos.", figma: ["MD-12"] },
 
   // Mis ahorros
-  { path: "/mis-ahorros", section: "mis-ahorros", title: "Mis ahorros", description: "Tu meta y temas de ahorro.", figma: ["AH-0", "AH-6"] },
-  { path: "/mis-ahorros/meta", section: "mis-ahorros", title: "¿Para qué quieres ahorrar?", description: "Paso 1 de 3. Meta o meta propia.", figma: ["AH-1", "AH-1b"] },
-  { path: "/mis-ahorros/plazo", section: "mis-ahorros", title: "¿Cuánto necesitas y para cuándo?", description: "Paso 2 de 3.", figma: ["AH-2"], hidden: true },
-  { path: "/mis-ahorros/plan", section: "mis-ahorros", title: "Tu plan", description: "Paso 3 de 3.", figma: ["AH-3"], hidden: true },
-  { path: "/mis-ahorros/tandas", section: "mis-ahorros", title: "Las tandas", description: "Cómo usarlas a tu favor.", figma: ["AH-4"] },
-  { path: "/mis-ahorros/tandas/sumar", section: "mis-ahorros", title: "Suma tu tanda a una meta", description: "Cuándo y cuánto recibes.", figma: ["AH-5"], hidden: true },
-  { path: "/mis-ahorros/por-que-ahorrar", section: "mis-ahorros", title: "Por qué ahorrar", description: "Lo que cambia con un guardadito.", figma: ["AH-7"] },
-  { path: "/mis-ahorros/emergencias", section: "mis-ahorros", title: "Para emergencias", description: "Cuánto apartar para los apuros.", figma: ["AH-8"] },
+  { path: "/mis-ahorros", lista: true, section: "mis-ahorros", title: "Mis ahorros", description: "Tu meta y temas de ahorro.", figma: ["AH-0", "AH-6"] },
+  { path: "/mis-ahorros/meta", lista: true, section: "mis-ahorros", title: "¿Para qué quieres ahorrar?", description: "Paso 1 de 3. Meta o meta propia.", figma: ["AH-1", "AH-1b"] },
+  { path: "/mis-ahorros/plazo", lista: true, section: "mis-ahorros", title: "¿Cuánto necesitas y para cuándo?", description: "Paso 2 de 3.", figma: ["AH-2"], hidden: true },
+  { path: "/mis-ahorros/plan", lista: true, section: "mis-ahorros", title: "Tu plan", description: "Paso 3 de 3.", figma: ["AH-3"], hidden: true },
+  { path: "/mis-ahorros/tandas", lista: true, section: "mis-ahorros", title: "Las tandas", description: "Cómo usarlas a tu favor.", figma: ["AH-4"] },
+  { path: "/mis-ahorros/tandas/sumar", lista: true, section: "mis-ahorros", title: "Suma tu tanda a una meta", description: "Cuándo y cuánto recibes.", figma: ["AH-5"], hidden: true },
+  { path: "/mis-ahorros/por-que-ahorrar", lista: true, section: "mis-ahorros", title: "Por qué ahorrar", description: "Lo que cambia con un guardadito.", figma: ["AH-7"] },
+  { path: "/mis-ahorros/emergencias", lista: true, section: "mis-ahorros", title: "Para emergencias", description: "Cuánto apartar para los apuros.", figma: ["AH-8"] },
 
   // Mis derechos
   { path: "/mis-derechos", lista: true, section: "mis-derechos", title: "Mis derechos", description: "Lo que te corresponde por ley.", figma: ["DR-0"] },

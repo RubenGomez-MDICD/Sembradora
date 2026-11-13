@@ -10,7 +10,7 @@ import { useFlujo } from "@/lib/db/use-flujo";
 import { textoAntiguedad } from "@/lib/calculos/derechos";
 import { formatFechaCorta, formatFechaLarga, formatMoney } from "@/lib/format";
 import { FLUJO_DERECHOS, enlaceWhatsApp, resultadoDe, textoParaCompartir, type DatosDerechos } from "../flujo";
-import { Paso } from "../paso";
+import { Paso } from "@/components/paso";
 
 const PROFEDET = "https://www.gob.mx/profedet";
 
