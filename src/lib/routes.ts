@@ -68,13 +68,15 @@ export const ROUTES: RouteInfo[] = [
   { path: "/mis-ahorros/emergencias", section: "mis-ahorros", title: "Para emergencias", description: "Cuánto apartar para los apuros.", figma: ["AH-8"] },
 
   // Mis derechos
-  { path: "/mis-derechos", section: "mis-derechos", title: "Mis derechos", description: "Lo que te corresponde por ley.", figma: ["DR-0"] },
-  { path: "/mis-derechos/contrato", section: "mis-derechos", title: "¿Tienes un contrato por escrito?", description: "Paso 1 de 4.", figma: ["DR-1a"] },
-  { path: "/mis-derechos/contrato/armar", section: "mis-derechos", title: "Arma tu contrato", description: "Datos prellenados con Mi sueldo.", figma: ["DR-5a", "DR-5b"] },
-  { path: "/mis-derechos/datos", section: "mis-derechos", title: "Calcula tus prestaciones", description: "Paso 2 de 4. Sueldo, antigüedad y situación.", figma: ["DR-1", "DR-1b", "DR-1c", "DR-1d", "DR-1e"], hidden: true },
-  { path: "/mis-derechos/resultado", section: "mis-derechos", title: "Lo que te toca", description: "Paso 3 de 4. Prestaciones, liquidación o finiquito.", figma: ["DR-2", "DR-2b", "DR-2L", "DR-2F"], hidden: true },
-  { path: "/mis-derechos/platicarlo", section: "mis-derechos", title: "Cómo platicarlo con tus patrones", description: "Paso 4 de 4 y tarjeta para mandarles.", figma: ["DR-3", "DR-3b"] },
-  { path: "/mis-derechos/imss", section: "mis-derechos", title: "El IMSS", description: "Qué te da y cómo te registran.", figma: ["DR-4", "DR-4b", "DR-4c"] },
+  { path: "/mis-derechos", lista: true, section: "mis-derechos", title: "Mis derechos", description: "Lo que te corresponde por ley.", figma: ["DR-0"] },
+  { path: "/mis-derechos/contrato", lista: true, section: "mis-derechos", title: "¿Tienes un contrato por escrito?", description: "Paso 1 de 4.", figma: ["DR-1a"] },
+  { path: "/mis-derechos/contrato/armar", lista: true, section: "mis-derechos", title: "Arma tu contrato", description: "Datos prellenados con Mi sueldo.", figma: ["DR-5a"] },
+  { path: "/mis-derechos/contrato/ver", lista: true, section: "mis-derechos", title: "Tu contrato", description: "Contrato listo para firmar, descargar o mandar.", figma: ["DR-5b"], hidden: true },
+  { path: "/mis-derechos/datos", lista: true, section: "mis-derechos", title: "Calcula tus prestaciones", description: "Paso 2 de 4. Sueldo, antigüedad y situación.", figma: ["DR-1", "DR-1b", "DR-1c", "DR-1d", "DR-1e"], hidden: true },
+  { path: "/mis-derechos/resultado", lista: true, section: "mis-derechos", title: "Lo que te toca", description: "Paso 3 de 4. Prestaciones, liquidación o finiquito.", figma: ["DR-2", "DR-2b", "DR-2L", "DR-2F"], hidden: true },
+  { path: "/mis-derechos/platicarlo", lista: true, section: "mis-derechos", title: "Cómo platicarlo con tus patrones", description: "Paso 4 de 4. Guía para pedir tu registro.", figma: ["DR-3"] },
+  { path: "/mis-derechos/platicarlo/patrones", lista: true, section: "mis-derechos", title: "Para tus patrones", description: "Tarjeta para mandarles cómo registrarte en el IMSS.", figma: ["DR-3b"], hidden: true },
+  { path: "/mis-derechos/imss", lista: true, section: "mis-derechos", title: "El IMSS", description: "Qué te da y cómo te registran.", figma: ["DR-4", "DR-4b", "DR-4c"] },
 
   // Aprende
   { path: "/aprende", lista: true, section: "aprende", title: "Aprende", description: "Las palabras del banco y de la ley, dichas como las decimos.", figma: ["AP-0"] },

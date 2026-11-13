@@ -12,13 +12,15 @@ import { TEMAS, buscarTerminos, terminoPorId, type Tema } from "@/content/glosar
  * Glosario con búsqueda y filtros (AP-3).
  * - `?q=` llega desde la búsqueda de Aprende (AP-0).
  * - `?t=` llega desde «Ver más en el glosario» (AP-2): abre esa palabra y la muestra.
+ * - `?tema=` llega desde «Lo que te toca» en Mis derechos (DR-0): filtra por tema.
  */
 export function Glosario() {
   const params = useSearchParams();
   const t = params.get("t") ?? "";
   const abierta = terminoPorId(t) ? t : undefined;
   const [q, setQ] = useState(params.get("q") ?? "");
-  const [tema, setTema] = useState<Tema | "todas">("todas");
+  const temaInicial = params.get("tema");
+  const [tema, setTema] = useState<Tema | "todas">(TEMAS.some((x) => x.value === temaInicial) ? (temaInicial as Tema) : "todas");
   const resultados = useMemo(() => buscarTerminos(q, tema), [q, tema]);
 
   useEffect(() => {

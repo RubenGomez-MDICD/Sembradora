@@ -89,7 +89,15 @@ Los cálculos viven en `src/lib/calculos`, separados de las pantallas, con prueb
 - **Ahorro**: aporte por semana o por mes según meta y plazo; fechas y monto de una tanda.
 - **Referencia legal**: salario mínimo de personas trabajadoras del hogar 2026 (CONASAMI).
 
-Los valores que cambian cada año (salario mínimo, tabulador) van en un archivo de datos con su fuente y fecha, para actualizarlos sin tocar el código.
+Los valores que cambian cada año (salario mínimo, tabulador) van en un archivo de datos con su fuente y fecha, para actualizarlos sin tocar el código (`src/content/datos-de-ley.ts`).
+
+Supuestos de la calculadora de Mis derechos (`src/lib/calculos/derechos.ts`), que la pantalla resume como «montos aproximados»:
+
+- Si el sueldo es menor al mínimo de trabajo del hogar ($342.47 en 2026, zona general), se calcula con el mínimo y se muestra también lo que daría con el sueldo real.
+- Las partes proporcionales cuentan los días trabajados incluido el último, en el aguinaldo y en las vacaciones. En Figma (DR-2L y DR-2F) las vacaciones usan 228 días en lugar de 229; por eso el código da $5,647 de vacaciones en lugar de $5,622.
+- Se supone que las vacaciones de años anteriores ya se tomaron y pagaron.
+- La prima de antigüedad usa como tope dos salarios mínimos generales ($315.04 en 2026; arts. 162 y 486 LFT).
+- En la liquidación se suman los 20 días por año porque en el trabajo del hogar no se puede obligar a la reinstalación (art. 49 fr. IV).
 
 ## 7. Accesibilidad
 
@@ -122,7 +130,7 @@ Meta: WCAG 2.2 nivel AA.
 3. Componentes de la librería en código: Button, Card, Stat, Alert, Toast, Input, Select, RadioCard, CheckboxCard, Progress, DataList, Steps, SegmentGroup, AppHeader, SaveStatus, DebtCard y Chart.
 4. Guardado local con Dexie y pruebas del modelo de datos.
 
-Estado al 13 de noviembre de 2026: fases 1 a 4 terminadas; Inicio y Aprende construidas.
+Estado al 13 de noviembre de 2026: fases 1 a 4 terminadas; Inicio, Aprende y Mis derechos construidas.
 
 Después, por secciones: Inicio y Aprende → Mi sueldo y Mis derechos → Mis ahorros → Mi dinero y deudas → Respaldo.
 
@@ -134,6 +142,7 @@ Después, por secciones: Inicio y Aprende → Mi sueldo y Mis derechos → Mis a
 - **Analítica**: decidir si se usa y con qué herramienta.
 - **Dominio**: el de Vercel (`*.vercel.app`) o uno propio.
 - **Ilustraciones**: dirección de estilo pendiente.
+- **Días de vacaciones proporcionales** (pendiente): el código cuenta el último día (229 días en el ejemplo de DR-2L); Figma usa 228. Decidir el criterio y actualizar Figma o el código, y la tesis.
 - **Glosario**: los 42 textos de `src/content/glosario.ts` son un borrador con su artículo de ley; validarlos con CACEH o PROFEDET.
 
 ## 12. Para actualizar en el documento de tesis
