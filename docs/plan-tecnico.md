@@ -142,6 +142,7 @@ Después, por secciones: Inicio y Aprende → Mi sueldo y Mis derechos → Mis a
 - **Analítica**: decidir si se usa y con qué herramienta.
 - **Dominio**: el de Vercel (`*.vercel.app`) o uno propio.
 - **Ilustraciones**: dirección de estilo pendiente.
+- **Días de vacaciones proporcionales** (pendiente): el código cuenta el último día (229 días en el ejemplo de DR-2L); Figma usa 228. Decidir el criterio y actualizar Figma o el código, y la tesis.
 - **Glosario**: los 42 textos de `src/content/glosario.ts` son un borrador con su artículo de ley; validarlos con CACEH o PROFEDET.
 
 ## 12. Para actualizar en el documento de tesis
