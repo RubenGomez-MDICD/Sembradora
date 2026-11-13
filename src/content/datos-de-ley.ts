@@ -32,3 +32,25 @@ export const LEY = {
   aniosPrimaAntiguedadSiRenuncias: 15, // art. 162 fr. III
   mesesParaReclamarDespido: 2, // art. 518
 } as const;
+
+/**
+ * Tabulador de Salario Digno de CACEH (2024), sueldo por día de cada categoría.
+ * Fuente: CACEH, «Manual de salario justo para las personas trabajadoras del hogar, 2024».
+ * El tabulador no dice cómo combinar categorías ni ajusta por horas o tamaño de casa;
+ * la regla de combinación de Mi sueldo está en src/lib/calculos/sueldo.ts.
+ * La categoría 1 de 2024 ($270.60) quedó abajo del mínimo de 2026: el cálculo usa el mínimo como piso.
+ */
+export const TABULADOR_CACEH = {
+  anio: 2024,
+  fuente: "CACEH, Manual de salario justo para las personas trabajadoras del hogar (2024).",
+  categorias: {
+    limpieza: { categoria: 1, nombre: "Limpieza general", diario: 27060 },
+    lavado: { categoria: 2, nombre: "Lavado y planchado", diario: 48500 },
+    cocina: { categoria: 4, nombre: "Cocina", diario: 60000 },
+    jardin: { categoria: 5, nombre: "Jardinería o mascotas", diario: 80000 },
+    ninos: { categoria: 6, nombre: "Cuidado de niñas y niños", diario: 85000, especializada: true },
+    mayores: { categoria: 7, nombre: "Cuidado de personas mayores", diario: 85000, especializada: true },
+  },
+} as const;
+
+export type Tarea = keyof typeof TABULADOR_CACEH.categorias;
