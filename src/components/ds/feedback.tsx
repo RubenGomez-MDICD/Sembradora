@@ -58,6 +58,8 @@ const TOAST_TYPE: Record<ToastStatus, string> = { success: "success", info: "inf
  * Con acción (por ejemplo «Deshacer») dura 8 s para dar tiempo de leer y tocar.
  */
 export function notify({ title, status = "success", action }: { title: string; status?: ToastStatus; action?: { label: string; onClick: () => void } }) {
+  // Solo se ve el aviso más reciente: si la persona hace dos cosas seguidas, el anterior se va.
+  toaster.dismiss();
   return toaster.create({ title, type: TOAST_TYPE[status], duration: action ? 8000 : 4000, action });
 }
 
