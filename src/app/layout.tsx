@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/nunito";
 import "@fontsource-variable/open-sans";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Provider } from "@/components/ui/provider";
 
 export const metadata: Metadata = {
@@ -21,6 +23,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="es-MX" suppressHydrationWarning>
       <body>
         <Provider>{children}</Provider>
+        {/* Solo visitas por página y velocidad real; sin cookies y sin los datos que se anotan (plan técnico, sección 9). */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

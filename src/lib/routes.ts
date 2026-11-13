@@ -33,14 +33,14 @@ export const ROUTES: RouteInfo[] = [
   { path: "/fuentes", lista: true, section: "inicio", title: "Fuentes y créditos", description: "De dónde salen los datos y los cálculos.", figma: ["IN-3"] },
 
   // Mi sueldo
-  { path: "/mi-sueldo", section: "mi-sueldo", title: "¿Cuánto te toca por tu trabajo?", description: "Calcula un sueldo justo según lo que haces en la casa.", figma: ["MS-0"] },
-  { path: "/mi-sueldo/tareas", section: "mi-sueldo", title: "¿Qué haces en la casa?", description: "Paso 1 de 5. Tareas con descripción.", figma: ["MS-1"] },
-  { path: "/mi-sueldo/frecuencia", section: "mi-sueldo", title: "¿Cada cuánto lo haces?", description: "Paso 2 de 5. Días que vas y frecuencia de cada tarea.", figma: ["MS-1b"] },
-  { path: "/mi-sueldo/casa", section: "mi-sueldo", title: "Cuéntanos de la casa", description: "Paso 3 de 5. Tamaño, personas y horas.", figma: ["MS-2"] },
-  { path: "/mi-sueldo/pago", section: "mi-sueldo", title: "¿Cuánto te pagan ahora?", description: "Paso 4 de 5. Comparación con lo que te toca.", figma: ["MS-3"] },
-  { path: "/mi-sueldo/resultado", section: "mi-sueldo", title: "Lo que puedes hacer", description: "Paso 5 de 5. Sueldo menor o sueldo justo.", figma: ["MS-4a", "MS-4b"] },
-  { path: "/mi-sueldo/tarifa", section: "mi-sueldo", title: "Tu tarifa para compartir", description: "Desglose y fundamento para mostrar a tus patrones.", figma: ["MS-5"] },
-  { path: "/mi-sueldo/platicarlo", section: "mi-sueldo", title: "Cómo platicar de tu sueldo", description: "Guía para pedir un pago justo.", figma: ["MS-6"] },
+  { path: "/mi-sueldo", lista: true, section: "mi-sueldo", title: "¿Cuánto te toca por tu trabajo?", description: "Calcula un sueldo justo según lo que haces en la casa.", figma: ["MS-0"] },
+  { path: "/mi-sueldo/tareas", lista: true, section: "mi-sueldo", title: "¿Qué haces en la casa?", description: "Paso 1 de 5. Tareas con descripción.", figma: ["MS-1"] },
+  { path: "/mi-sueldo/frecuencia", lista: true, section: "mi-sueldo", title: "¿Cada cuánto lo haces?", description: "Paso 2 de 5. Días que vas y frecuencia de cada tarea.", figma: ["MS-1b"] },
+  { path: "/mi-sueldo/jornada", lista: true, section: "mi-sueldo", title: "Tu jornada", description: "Paso 3 de 5. Horas al día y cuánto te toca.", figma: ["MS-2"] },
+  { path: "/mi-sueldo/pago", lista: true, section: "mi-sueldo", title: "¿Cuánto te pagan ahora?", description: "Paso 4 de 5. Comparación con lo que te toca.", figma: ["MS-3"] },
+  { path: "/mi-sueldo/resultado", lista: true, section: "mi-sueldo", title: "Lo que puedes hacer", description: "Paso 5 de 5. Sueldo menor o sueldo justo.", figma: ["MS-4a", "MS-4b"] },
+  { path: "/mi-sueldo/tarifa", lista: true, section: "mi-sueldo", title: "Tu tarifa para compartir", description: "Desglose y fundamento para mostrar a tus patrones.", figma: ["MS-5"] },
+  { path: "/mi-sueldo/platicarlo", lista: true, section: "mi-sueldo", title: "Cómo platicar de tu sueldo", description: "Guía para pedir un pago justo.", figma: ["MS-6"] },
 
   // Mi dinero
   { path: "/mi-dinero", section: "mi-dinero", title: "Mi dinero", description: "Primera vez, balance vacío o balance de la semana.", figma: ["MD-0", "MD-1", "MD-4", "MD-4b", "MD-4c"] },

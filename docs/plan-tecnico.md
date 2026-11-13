@@ -30,7 +30,7 @@ El mapa completo está en `src/lib/routes.ts`. Resumen:
 | Sección | Rutas principales | Figma |
 | --- | --- | --- |
 | Inicio | `/`, `/fuentes` | IN-1, IN-2 (menú), IN-3 |
-| Mi sueldo | `/mi-sueldo` y los pasos `tareas`, `frecuencia`, `casa`, `pago`, `resultado`; además `tarifa` y `platicarlo` | MS-0 a MS-6 |
+| Mi sueldo | `/mi-sueldo` y los pasos `tareas`, `frecuencia`, `jornada`, `pago`, `resultado`; además `tarifa` y `platicarlo` | MS-0 a MS-6 |
 | Mi dinero | `/mi-dinero`, `anotar`, `movimientos`, `ideas`, `tope`, `deudas`, `respaldo`, `pin` | MD-0 a MD-18 |
 | Mis ahorros | `/mis-ahorros`, `meta`, `plazo`, `plan`, `tandas`, `por-que-ahorrar`, `emergencias` | AH-0 a AH-8 |
 | Mis derechos | `/mis-derechos`, `contrato`, `datos`, `resultado`, `platicarlo`, `imss` | DR-0 a DR-5b |
@@ -94,7 +94,7 @@ Los valores que cambian cada año (salario mínimo, tabulador) van en un archivo
 Supuestos de la calculadora de Mis derechos (`src/lib/calculos/derechos.ts`), que la pantalla resume como «montos aproximados»:
 
 - Si el sueldo es menor al mínimo de trabajo del hogar ($342.47 en 2026, zona general), se calcula con el mínimo y se muestra también lo que daría con el sueldo real.
-- Las partes proporcionales cuentan los días trabajados incluido el último, en el aguinaldo y en las vacaciones. En Figma (DR-2L y DR-2F) las vacaciones usan 228 días en lugar de 229; por eso el código da $5,647 de vacaciones en lugar de $5,622.
+- Las partes proporcionales cuentan los días trabajados incluido el último, en el aguinaldo y en las vacaciones (229 días de vacaciones en el ejemplo de DR-2L: $5,647).
 - Se supone que las vacaciones de años anteriores ya se tomaron y pagaron.
 - La prima de antigüedad usa como tope dos salarios mínimos generales ($315.04 en 2026; arts. 162 y 486 LFT).
 - En la liquidación se suman los 20 días por año porque en el trabajo del hogar no se puede obligar a la reinstalación (art. 49 fr. IV).
@@ -121,7 +121,7 @@ Meta: WCAG 2.2 nivel AA.
 
 - Sin cuentas, sin cookies de rastreo y sin servicios de terceros en el navegador.
 - Los datos personales nunca salen del teléfono sin cifrar.
-- Si se agrega analítica, debe ser sin cookies y sin datos personales (decisión pendiente).
+- Analítica: Vercel Web Analytics (visitas por página) y Speed Insights (velocidad real), sin cookies, servidas desde el mismo dominio y sin acceso a lo que se anota.
 
 ## 10. Fases
 
@@ -134,16 +134,19 @@ Estado al 13 de noviembre de 2026: fases 1 a 4 terminadas; Inicio, Aprende, Mis 
 
 Después, por secciones: Inicio y Aprende → Mi sueldo y Mis derechos → Mis ahorros → Mi dinero y deudas → Respaldo.
 
-## 11. Pendientes y decisiones abiertas
+## 11. Decisiones tomadas (13 de noviembre de 2026)
 
-- **Fórmula de Mi sueldo** (en pausa): falta la regla exacta de modulación por tareas acumuladas y frecuencia.
+- **Mi sueldo**: cada día trabajado se paga con la categoría del Tabulador de CACEH (2024) más alta entre las tareas de ese día, con el salario mínimo de trabajo del hogar como piso. Las tareas más especializadas ocupan primero sus días. Menos de 8 horas: parte proporcional; horas extra: al doble (art. 67 y 68 LFT). El tamaño de la casa y el número de personas no cambian el monto porque CACEH no los considera. La tesis debe discutir las brechas entre el tabulador y la realidad de las trabajadoras.
+- **Vacaciones proporcionales**: se cuentan los días trabajados incluido el último (229 días en el ejemplo de DR-2L), igual que el aguinaldo.
+- **Analítica**: Vercel Web Analytics y Speed Insights, sin cookies y del mismo dominio. El plan gratuito guarda un mes; exportar los datos cada mes para la tesis.
+- **Licencias**: código MIT; ilustraciones CC BY 4.0 cuando existan.
+- **Dominio**: el de Vercel por ahora.
+
+## 11b. Pendientes y decisiones abiertas
+
 - **Montos legales**: validar liquidación y finiquito con CACEH o PROFEDET antes de publicar.
-- **Licencia de los contenidos**: el código usa la licencia MIT. Los textos, ilustraciones y la identidad del sitio pueden llevar una licencia aparte (por ejemplo, Creative Commons BY 4.0).
-- **Analítica**: decidir si se usa y con qué herramienta.
-- **Dominio**: el de Vercel (`*.vercel.app`) o uno propio.
-- **Ilustraciones**: dirección de estilo pendiente.
-- **Días de vacaciones proporcionales** (pendiente): el código cuenta el último día (229 días en el ejemplo de DR-2L); Figma usa 228. Decidir el criterio y actualizar Figma o el código, y la tesis.
-- **Avance de las metas** (Mis ahorros): Figma muestra «Llevas $2,885» sin decir de dónde sale. En código se agregó «Anotar lo que aparté» en la tarjeta de la meta; las tandas se suman solas en su fecha. Falta reflejarlo en Figma.
+- **Ilustraciones**: se trabajan al final.
+- **Validación externa** (en pausa): montos legales y glosario con CACEH o PROFEDET; prueba en un Android de gama baja.
 - **Glosario**: los 42 textos de `src/content/glosario.ts` son un borrador con su artículo de ley; validarlos con CACEH o PROFEDET.
 
 ## 12. Para actualizar en el documento de tesis

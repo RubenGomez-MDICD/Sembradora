@@ -14,12 +14,12 @@ import { formatFechaLarga, formatMoney, parsePesos } from "@/lib/format";
 import { FLUJO_DERECHOS, validarDatos, type DatosDerechos, type ErroresDerechos } from "../flujo";
 import { Paso } from "@/components/paso";
 
-/** Último sueldo diario calculado en Mi sueldo, si existe (DR-1c). */
+/** Lo que le pagan al día según su último cálculo de Mi sueldo (MS-3), si existe (DR-1c). No es la tarifa justa: es el pago real. */
 function useSueldoDeMiSueldo() {
   return useLiveQuery(async () => {
     const calculos = await getDb().calculos.where("tipo").equals("sueldo").toArray();
     const ultimo = calculos.filter((c) => !c.borrado).sort((a, b) => b.creado.localeCompare(a.creado))[0];
-    const centavos = ultimo?.resultado?.sueldoDiario;
+    const centavos = ultimo?.resultado?.pagoDiario;
     return typeof centavos === "number" ? centavos : null;
   });
 }
