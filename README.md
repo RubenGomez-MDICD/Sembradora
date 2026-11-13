@@ -20,7 +20,10 @@ npm run build    # versión de producción
 docs/plan-tecnico.md    Decisiones técnicas y fases
 src/app/                Páginas (App Router de Next.js)
 src/app/[...slug]/      Esqueleto navegable de las rutas que aún no tienen pantalla
-src/components/         Componentes del sitio (AppHeader, SectionCard, Screen…)
+src/app/componentes/    Página de revisión con todos los componentes (/componentes, fuera de buscadores)
+src/components/         Componentes del sitio (AppHeader, Screen…)
+src/components/ds/      Librería de componentes, uno por componente de Figma
+src/lib/format.ts       Formato de dinero (centavos → $1,250), fechas y porcentajes
 src/lib/routes.ts       Mapa del sitio con las pantallas de Figma de cada ruta
 src/theme/              Tema de Chakra UI con los tokens de Figma
 ```
