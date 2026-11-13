@@ -7,10 +7,11 @@ import { Screen } from "@/components/screen";
 import type { EstadoGuardado } from "@/lib/db/use-flujo";
 
 /**
- * Marco de cada paso de la calculadora (DR-1a a DR-3): encabezado con «Paso X de 4»,
- * barra de pasos, título, contenido y estado de guardado al final.
+ * Marco de cada paso de un flujo (Mis derechos, Mis ahorros…): encabezado con
+ * «Paso X de N», barra de pasos, título, contenido y estado de guardado al final.
  */
 export function Paso({
+  seccion = "Mis derechos",
   paso,
   total = 4,
   backHref,
@@ -20,6 +21,7 @@ export function Paso({
   onReintentar,
   children,
 }: {
+  seccion?: string;
   paso: number;
   total?: number;
   backHref: string;
@@ -31,7 +33,7 @@ export function Paso({
 }) {
   return (
     <>
-      <AppHeader type="back" title="Mis derechos" meta={`Paso ${paso} de ${total}`} backHref={backHref} />
+      <AppHeader type="back" title={seccion} meta={`Paso ${paso} de ${total}`} backHref={backHref} />
       <Screen>
         <StepsBar total={total} current={paso} />
         {titulo ? (

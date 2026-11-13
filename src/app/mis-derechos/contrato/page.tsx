@@ -7,7 +7,7 @@ import { ExternalLink } from "lucide-react";
 import { Alert, RadioCardGroup } from "@/components/ds";
 import { useFlujo } from "@/lib/db/use-flujo";
 import { FLUJO_DERECHOS, type DatosDerechos } from "../flujo";
-import { Paso } from "../paso";
+import { Paso } from "@/components/paso";
 
 /** Figma: DR-1a · Tu contrato (paso 1 de 4) */
 export default function Contrato() {

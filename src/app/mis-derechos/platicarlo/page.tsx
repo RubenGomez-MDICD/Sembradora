@@ -4,7 +4,7 @@ import NextLink from "next/link";
 import { Box, Button, Heading, Stack, Text } from "@chakra-ui/react";
 import { NumberedSteps, notify } from "@/components/ds";
 import { compartirEnlace } from "@/lib/compartir";
-import { Paso } from "../paso";
+import { Paso } from "@/components/paso";
 
 /** Figma: DR-3 · Conversarlo (paso 4 de 4) */
 export default function Platicarlo() {

@@ -130,7 +130,7 @@ Meta: WCAG 2.2 nivel AA.
 3. Componentes de la librería en código: Button, Card, Stat, Alert, Toast, Input, Select, RadioCard, CheckboxCard, Progress, DataList, Steps, SegmentGroup, AppHeader, SaveStatus, DebtCard y Chart.
 4. Guardado local con Dexie y pruebas del modelo de datos.
 
-Estado al 13 de noviembre de 2026: fases 1 a 4 terminadas; Inicio, Aprende y Mis derechos construidas.
+Estado al 13 de noviembre de 2026: fases 1 a 4 terminadas; Inicio, Aprende, Mis derechos y Mis ahorros construidas.
 
 Después, por secciones: Inicio y Aprende → Mi sueldo y Mis derechos → Mis ahorros → Mi dinero y deudas → Respaldo.
 
@@ -143,6 +143,7 @@ Después, por secciones: Inicio y Aprende → Mi sueldo y Mis derechos → Mis a
 - **Dominio**: el de Vercel (`*.vercel.app`) o uno propio.
 - **Ilustraciones**: dirección de estilo pendiente.
 - **Días de vacaciones proporcionales** (pendiente): el código cuenta el último día (229 días en el ejemplo de DR-2L); Figma usa 228. Decidir el criterio y actualizar Figma o el código, y la tesis.
+- **Avance de las metas** (Mis ahorros): Figma muestra «Llevas $2,885» sin decir de dónde sale. En código se agregó «Anotar lo que aparté» en la tarjeta de la meta; las tandas se suman solas en su fecha. Falta reflejarlo en Figma.
 - **Glosario**: los 42 textos de `src/content/glosario.ts` son un borrador con su artículo de ley; validarlos con CACEH o PROFEDET.
 
 ## 12. Para actualizar en el documento de tesis

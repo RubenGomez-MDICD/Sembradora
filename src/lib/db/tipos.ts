@@ -59,7 +59,7 @@ export type Deuda = Registro & {
   interes?: number;
 };
 
-export type UnidadPlazo = "semanas" | "meses";
+export type UnidadPlazo = "semanas" | "meses" | "anios";
 
 export type Meta = Registro & {
   nombre: string;
@@ -70,6 +70,10 @@ export type Meta = Registro & {
   frecuenciaAporte: Frecuencia;
   /** Día en que empieza el plan, AAAA-MM-DD. */
   inicio: string;
+  /** Lo que la persona ya apartó, en centavos (lo anota ella en Mis ahorros). */
+  aportado: number;
+  /** Meta sugerida de la que salió (AH-1): «casa», «mayor», «estudiar», «negocio», «emergencias» u «otra». */
+  clase?: string;
 };
 
 export type Tanda = Registro & {
