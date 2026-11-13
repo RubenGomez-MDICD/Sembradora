@@ -196,9 +196,9 @@ export function Showcase() {
         </Section>
 
         <Section figma="DebtCard">
-          <DebtCard href="/mi-dinero/deudas/ejemplo" title="Préstamo de mi hermana" kind="Préstamo de una persona" owedCents={150000} paidCents={150000} totalCents={300000} next="$500 el 31 de octubre" icon={Handshake} />
-          <DebtCard href="/mi-dinero/deudas/ejemplo" title="Refrigerador" kind="Crédito en tienda, en abonos" owedCents={360000} paidCents={240000} totalCents={600000} next="Abono de $150 el viernes 16 de octubre" icon={Store} />
-          <DebtCard href="/mi-dinero/deudas/ejemplo" title="Tarjeta del banco" kind="Tarjeta de crédito" owedCents={280000} paidCents={120000} totalCents={400000} next="Pago mínimo: $350 el 20 de octubre" icon={CreditCard} />
+          <DebtCard href="/mi-dinero/deudas/ver" title="Préstamo de mi hermana" kind="Préstamo de una persona" owedCents={150000} paidCents={150000} totalCents={300000} next="$500 el 31 de octubre" icon={Handshake} />
+          <DebtCard href="/mi-dinero/deudas/ver" title="Refrigerador" kind="Crédito en tienda, en abonos" owedCents={360000} paidCents={240000} totalCents={600000} next="Abono de $150 el viernes 16 de octubre" icon={Store} />
+          <DebtCard href="/mi-dinero/deudas/ver" title="Tarjeta del banco" kind="Tarjeta de crédito" owedCents={280000} paidCents={120000} totalCents={400000} next="Pago mínimo: $350 el 20 de octubre" icon={CreditCard} />
         </Section>
 
         <Section figma="Chart.WeekBars · neutral y referencia · Chart.WeekPace">

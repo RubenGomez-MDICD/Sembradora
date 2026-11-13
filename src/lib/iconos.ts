@@ -1,4 +1,4 @@
-import { Baby, BookOpen, Bus, Coins, CreditCard, Ellipsis, HandCoins, HeartPulse, House, PiggyBank, Sprout, Store, Users, Utensils, Wallet, type LucideIcon } from "lucide-react";
+import { Baby, BookOpen, Bus, Coins, CreditCard, Ellipsis, Gem, HandCoins, Handshake, HeartPulse, House, Landmark, PiggyBank, Sprout, Store, Users, Utensils, Wallet, type LucideIcon } from "lucide-react";
 
 /**
  * Íconos que se guardan por nombre en la base (categorías y metas).
@@ -11,9 +11,12 @@ export const ICONOS: Record<string, LucideIcon> = {
   coins: Coins,
   "credit-card": CreditCard,
   ellipsis: Ellipsis,
+  gem: Gem,
   "hand-coins": HandCoins,
+  handshake: Handshake,
   "heart-pulse": HeartPulse,
   house: House,
+  landmark: Landmark,
   "piggy-bank": PiggyBank,
   sprout: Sprout,
   store: Store,
