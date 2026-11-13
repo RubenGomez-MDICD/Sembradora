@@ -4,6 +4,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { system } from "@/theme";
 import { Toaster } from "@/components/ds/feedback";
 import { GlosarioProvider } from "@/components/glosario";
+import { RespaldoAutomatico } from "@/components/respaldo-automatico";
 import { EmotionRegistry } from "./emotion-registry";
 
 export function Provider({ children }: { children: React.ReactNode }) {
@@ -12,6 +13,7 @@ export function Provider({ children }: { children: React.ReactNode }) {
       <ChakraProvider value={system}>
         <GlosarioProvider>{children}</GlosarioProvider>
         <Toaster />
+        <RespaldoAutomatico />
       </ChakraProvider>
     </EmotionRegistry>
   );

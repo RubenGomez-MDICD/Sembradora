@@ -52,10 +52,10 @@ export const ROUTES: RouteInfo[] = [
   { path: "/mi-dinero/deudas", lista: true, section: "mi-dinero", title: "Lo que debes", description: "Deudas, lo que falta y el próximo pago.", figma: ["MD-15"] },
   { path: "/mi-dinero/deudas/nueva", lista: true, section: "mi-dinero", title: "Anotar una deuda", description: "Tipo, monto y forma de pago.", figma: ["MD-16"], hidden: true },
   { path: "/mi-dinero/deudas/ver", lista: true, section: "mi-dinero", title: "Detalle de una deuda", description: "Avance, próximos pagos y anotar un pago.", figma: ["MD-17", "MD-17t", "MD-17r", "MD-18"], hidden: true },
-  { path: "/mi-dinero/respaldo", section: "mi-dinero", title: "Tu respaldo", description: "Código de respaldo o archivo.", figma: ["MD-8", "MD-8f"] },
-  { path: "/mi-dinero/respaldo/codigo", section: "mi-dinero", title: "Este es tu código", description: "Código creado.", figma: ["MD-9"], hidden: true },
-  { path: "/mi-dinero/respaldo/recuperar", section: "mi-dinero", title: "Recupera tus datos", description: "Con código o con archivo; juntar o reemplazar.", figma: ["MD-10", "MD-10b", "MD-10f", "MD-11", "MD-11b", "MD-11c"], hidden: true },
-  { path: "/mi-dinero/pin", section: "mi-dinero", title: "Proteger con PIN", description: "PIN opcional para teléfonos compartidos.", figma: ["MD-12"] },
+  { path: "/mi-dinero/respaldo", lista: true, section: "mi-dinero", title: "Tu respaldo", description: "Código de respaldo o archivo.", figma: ["MD-8", "MD-8f"] },
+  { path: "/mi-dinero/respaldo/codigo", lista: true, section: "mi-dinero", title: "Este es tu código", description: "Código creado.", figma: ["MD-9"], hidden: true },
+  { path: "/mi-dinero/respaldo/recuperar", lista: true, section: "mi-dinero", title: "Recupera tus datos", description: "Con código o con archivo; juntar o reemplazar.", figma: ["MD-10", "MD-10b", "MD-10f", "MD-11", "MD-11b", "MD-11c"], hidden: true },
+  { path: "/mi-dinero/pin", lista: true, section: "mi-dinero", title: "Proteger con PIN", description: "PIN opcional para teléfonos compartidos.", figma: ["MD-12"] },
 
   // Mis ahorros
   { path: "/mis-ahorros", lista: true, section: "mis-ahorros", title: "Mis ahorros", description: "Tu meta y temas de ahorro.", figma: ["AH-0", "AH-6"] },
