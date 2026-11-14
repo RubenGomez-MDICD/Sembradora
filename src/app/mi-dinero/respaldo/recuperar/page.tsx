@@ -10,6 +10,7 @@ import { PageTitle } from "@/components/page-title";
 import { Screen } from "@/components/screen";
 import type { Respaldo } from "@/lib/db";
 import { compartirODescargar } from "@/lib/compartir";
+import { useEnLinea } from "@/lib/en-linea";
 import { formatFechaCorta } from "@/lib/format";
 import { ArchivoInvalido, CodigoIncorrecto, MENSAJES_CODIGO, NoEncontrado, SinAlmacen, SinInternet, archivoDeRespaldo, bajarRespaldo, cuantosMovimientos, leerArchivo, recuperar, resumenLocal, revisarCodigo } from "@/lib/respaldo";
 
@@ -29,18 +30,10 @@ export default function Recuperar() {
   const [encontrado, setEncontrado] = useState<Encontrado | null>(null);
   const [modo, setModo] = useState<"juntar" | "reemplazar">("juntar");
   const [local, setLocal] = useState<Awaited<ReturnType<typeof resumenLocal>> | null>(null);
-  const [enLinea, setEnLinea] = useState(true);
+  const enLinea = useEnLinea();
 
   useEffect(() => {
     void resumenLocal().then(setLocal);
-    const actualizar = () => setEnLinea(navigator.onLine);
-    actualizar();
-    window.addEventListener("online", actualizar);
-    window.addEventListener("offline", actualizar);
-    return () => {
-      window.removeEventListener("online", actualizar);
-      window.removeEventListener("offline", actualizar);
-    };
   }, []);
 
   const revision = texto ? revisarCodigo(texto) : null;

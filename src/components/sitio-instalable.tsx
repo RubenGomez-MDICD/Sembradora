@@ -7,7 +7,7 @@ import { getDb } from "@/lib/db";
 /**
  * Todo lo que hace que el sitio funcione como app:
  * - registra el service worker (solo en producción) y avisa cuando hay versión nueva;
- * - avisa al quedarse sin internet y al volver;
+ * - (el aviso de que no hay internet es la etiqueta del encabezado: etiqueta-sin-internet.tsx);
  * - si no hay internet, evita abrir enlaces a otros sitios y lo explica;
  * - pide al navegador que no borre los datos del teléfono (almacenamiento persistente);
  * - guarda el aviso de instalación de Android para mostrarlo en Inicio.
@@ -45,11 +45,6 @@ export function SitioInstalable() {
     };
     window.addEventListener("beforeinstallprompt", capturar);
 
-    const sinRed = () => notify({ title: "Sin internet. Lo que anotes se guarda en tu teléfono.", status: "info" });
-    const conRed = () => notify({ title: "Volvió el internet" });
-    window.addEventListener("offline", sinRed);
-    window.addEventListener("online", conRed);
-
     // Enlaces a otros sitios: sin internet no abren, mejor decirlo.
     const alTocar = (e: MouseEvent) => {
       if (navigator.onLine) return;
@@ -68,8 +63,6 @@ export function SitioInstalable() {
 
     return () => {
       window.removeEventListener("beforeinstallprompt", capturar);
-      window.removeEventListener("offline", sinRed);
-      window.removeEventListener("online", conRed);
       document.removeEventListener("click", alTocar, true);
       document.removeEventListener("visibilitychange", alOcultar);
       clearTimeout(t);
