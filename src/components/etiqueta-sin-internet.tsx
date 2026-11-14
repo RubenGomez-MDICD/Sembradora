@@ -2,6 +2,7 @@
 
 import { Box, Popover, Portal, Stack, Text, chakra } from "@chakra-ui/react";
 import { WifiOff } from "lucide-react";
+import { FUNCIONA_SIN_INTERNET, NECESITA_INTERNET } from "@/content/sin-internet";
 import { useEnLinea } from "@/lib/en-linea";
 
 /**
@@ -33,10 +34,20 @@ export function EtiquetaSinInternet() {
                 <Popover.Body p="4">
                   <Stack gap="2">
                     <Popover.Title textStyle="label">Estás sin internet</Popover.Title>
-                    <Text textStyle="bodySm">Lo que anotes se guarda en tu teléfono y las páginas que ya abriste siguen funcionando.</Text>
-                    <Text textStyle="bodySm" color="content.muted">
-                      El respaldo con código y los enlaces a otros sitios esperan a que vuelva la conexión.
+                    <Text textStyle="caption" fontWeight="semibold">Puedes seguir con esto</Text>
+                    <Box as="ul" listStyleType="disc" pl="5" m="0" textStyle="bodySm" css={{ "& li + li": { mt: "1" } }}>
+                      {FUNCIONA_SIN_INTERNET.map((t) => (
+                        <li key={t}>{t}</li>
+                      ))}
+                    </Box>
+                    <Text textStyle="caption" fontWeight="semibold" color="content.muted">
+                      Espera a que vuelva la conexión
                     </Text>
+                    <Box as="ul" listStyleType="disc" pl="5" m="0" textStyle="bodySm" css={{ "& li + li": { mt: "1" } }} color="content.muted">
+                      {NECESITA_INTERNET.map((t) => (
+                        <li key={t}>{t}</li>
+                      ))}
+                    </Box>
                   </Stack>
                 </Popover.Body>
               </Popover.Content>
