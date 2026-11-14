@@ -3,9 +3,11 @@
 import NextLink from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { Box, CloseButton, Drawer, Flex, IconButton, Link, Portal, Separator, Stack, Text } from "@chakra-ui/react";
+import { EtiquetaSinInternet } from "@/components/etiqueta-sin-internet";
+import { useEnLinea } from "@/lib/en-linea";
 import { ArrowLeft, BookOpen, CloudUpload, HandCoins, House, Info, Lock, Menu, PiggyBank, Scale, Wallet } from "lucide-react";
 
-/** Figma: componente «AppHeader» (type=home | back). */
+/** Figma: componente «AppHeader» (type=home | back; sinInternet=true | false). */
 type Props =
   | { type: "home" }
   | { type: "back"; title: string; meta?: string; backHref?: string };
@@ -26,6 +28,7 @@ const NAV_EXTRA = [
 
 export function AppHeader(props: Props) {
   const router = useRouter();
+  const enLinea = useEnLinea();
 
   return (
     <Box as="header" position="sticky" top="0" zIndex="sticky" bg="surface.panel" borderBottomWidth="1px" borderColor="border.subtle">
@@ -35,6 +38,7 @@ export function AppHeader(props: Props) {
             <Text flex="1" px="2" textStyle="h4" color="brand.primary.fg">
               La sembradora
             </Text>
+            <EtiquetaSinInternet />
             <MenuDrawer />
           </>
         ) : (
@@ -51,11 +55,13 @@ export function AppHeader(props: Props) {
             <Text as="span" flex="1" textStyle="label" truncate>
               {props.title}
             </Text>
-            {props.meta ? (
+            {/* Sin internet, la etiqueta ocupa el lugar del dato de la derecha (el paso ya se ve en la barra de avance). */}
+            {props.meta && enLinea ? (
               <Text as="span" pr="3" textStyle="caption" color="content.muted">
                 {props.meta}
               </Text>
             ) : null}
+            <EtiquetaSinInternet />
           </>
         )}
       </Flex>

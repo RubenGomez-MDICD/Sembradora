@@ -8,6 +8,7 @@ import { Alert, BackupCode, CheckboxCardItem } from "@/components/ds";
 import { PageTitle } from "@/components/page-title";
 import { Screen } from "@/components/screen";
 import { useRegistro, useTabla } from "@/lib/db/hooks";
+import { useEnLinea } from "@/lib/en-linea";
 import { SinAlmacen, SinInternet, subirRespaldo } from "@/lib/respaldo";
 
 const fecha = new Intl.DateTimeFormat("es-MX", { day: "numeric", month: "long", hour: "numeric", minute: "2-digit" });
@@ -20,6 +21,7 @@ export default function Codigo() {
   const [anotado, setAnotado] = useState(false);
   const [error, setError] = useState<string>();
   const [subiendo, setSubiendo] = useState(false);
+  const enLinea = useEnLinea();
   const valor = typeof codigo?.valor === "string" ? codigo.valor : null;
   const cuando = typeof ultimo?.valor === "string" ? ultimo.valor : null;
 
@@ -65,7 +67,7 @@ export default function Codigo() {
           </Alert>
         ) : (
           <Alert status="warning" title="Tu respaldo todavía no se sube" live>
-            {error ?? "Puede ser que no haya internet. Se intentará de nuevo solo; también puedes intentarlo ahora."}
+            {!enLinea ? "No hay internet. Tu código ya sirve: el respaldo se sube solo cuando vuelva la conexión." : (error ?? "Puede ser que no haya internet. Se intentará de nuevo solo; también puedes intentarlo ahora.")}
           </Alert>
         )}
         <Stack gap="2">
@@ -74,7 +76,7 @@ export default function Codigo() {
               Listo
             </NextLink>
           </Button>
-          <Button size="lg" variant="ghost" onClick={subir} loading={subiendo} loadingText="Subiendo…">
+          <Button size="lg" variant="ghost" onClick={subir} loading={subiendo} loadingText="Subiendo…" disabled={!enLinea}>
             {cuando ? "Actualizar ahora" : "Intentar subirlo ahora"}
           </Button>
         </Stack>

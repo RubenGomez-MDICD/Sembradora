@@ -2,12 +2,13 @@ import { Heading, Stack, Text } from "@chakra-ui/react";
 import { BookOpen, HandCoins, PiggyBank, Scale, Wallet } from "lucide-react";
 import { AppHeader } from "@/components/app-header";
 import { Continuar } from "@/components/continuar";
+import { AvisoSinInternet } from "@/components/aviso-sin-internet";
 import { InvitarInstalar } from "@/components/invitar-instalar";
 import { Screen } from "@/components/screen";
 import { SectionCard } from "@/components/section-card";
 import { SECTIONS } from "@/lib/routes";
 
-/** Figma: IN-1 · Inicio */
+/** Figma: IN-1 · Inicio (IN-1s: sin internet) */
 const ITEMS = [
   { id: "mi-sueldo", icon: HandCoins },
   { id: "mi-dinero", icon: Wallet },
@@ -27,6 +28,7 @@ export default function Inicio() {
           </Heading>
           <Text color="content.muted">Herramientas para tu sueldo, tu dinero y tus derechos.</Text>
         </Stack>
+        <AvisoSinInternet />
         <Continuar />
         <InvitarInstalar />
         <Stack as="section" aria-labelledby="secciones" gap="3">
