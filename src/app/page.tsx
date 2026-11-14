@@ -2,6 +2,7 @@ import { Heading, Stack, Text } from "@chakra-ui/react";
 import { BookOpen, HandCoins, PiggyBank, Scale, Wallet } from "lucide-react";
 import { AppHeader } from "@/components/app-header";
 import { Continuar } from "@/components/continuar";
+import { InvitarInstalar } from "@/components/invitar-instalar";
 import { Screen } from "@/components/screen";
 import { SectionCard } from "@/components/section-card";
 import { SECTIONS } from "@/lib/routes";
@@ -27,6 +28,7 @@ export default function Inicio() {
           <Text color="content.muted">Herramientas para tu sueldo, tu dinero y tus derechos.</Text>
         </Stack>
         <Continuar />
+        <InvitarInstalar />
         <Stack as="section" aria-labelledby="secciones" gap="3">
           <Heading as="h2" id="secciones" textStyle="h3">
             ¿Qué quieres hacer?

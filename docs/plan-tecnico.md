@@ -119,6 +119,16 @@ Meta: WCAG 2.2 nivel AA.
 - Presupuesto: primera carga de cada página por debajo de 200 KB de JavaScript comprimido y Lighthouse móvil de 90 o más.
 - Páginas estáticas siempre que se pueda; las calculadoras se hidratan solo donde hay interacción.
 - Pruebas en un Android de gama baja real además del simulador.
+- Fuentes: solo el alfabeto latino de Nunito y Open Sans en peso variable (39 KB y 48 KB). El navegador ya bajaba solo esas, pero el sitio publicado y lo guardado para usar sin internet ya no cargan con cirílico, griego ni vietnamita (de 464 KB a 87 KB en archivos).
+
+### 8b. Sin internet e instalable
+
+- **Instalable**: manifiesto con íconos (192, 512 y adaptable), ícono de Apple y nombre corto «Sembradora». En Inicio aparece la invitación a agregarla a la pantalla de inicio solo cuando ya hay algo anotado: en Android abre el aviso del sistema y en iPhone explica los dos toques. Se descarta con «Ahora no» o «Entendido» y no vuelve.
+- **Datos que no se borran**: con algo anotado, se pide al navegador almacenamiento persistente para que no borre la base de datos por falta de espacio o de uso.
+- **Service worker propio** (`public/sw.js`, sin dependencias): al instalarse guarda Inicio, Mi dinero (inicio, anotar en dos pasos y movimientos), el glosario y la página «Sin internet», con su código, estilos y fuentes. Cada página que se visita con internet queda guardada. Páginas: primero la red (con 4 segundos de espera) y si no hay, lo guardado; archivos con huella: lo guardado primero; `/api` y la analítica no pasan por el service worker.
+- **Qué funciona sin internet**: anotar y ver movimientos, deudas, tope y metas ya guardadas; el glosario; cualquier calculadora o página que ya se haya abierto antes. **Qué no**: respaldo y recuperación con código, enlaces a otros sitios (se avisa en lugar de abrirlos) y páginas que nunca se abrieron (se muestra «Sin internet» con lo que sí funciona).
+- **Versiones**: cada publicación en Vercel cambia la versión del service worker; quien tenga la página abierta ve «Hay una versión nueva» con el botón «Actualizar». Las páginas guardadas de la versión anterior se borran al actualizar.
+- **Pruebas**: en modo avión con Playwright (14 comprobaciones: guardado previo, anotar sin internet, fuentes, navegación interna, página no guardada, enlace externo, aviso de versión nueva e invitación en iPhone).
 
 ## 9. Privacidad
 
