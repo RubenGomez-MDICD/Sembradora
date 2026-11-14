@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import "@fontsource-variable/nunito";
-import "@fontsource-variable/open-sans";
+import "./fuentes.css";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -10,6 +9,8 @@ export const metadata: Metadata = {
   title: { default: "La sembradora", template: "%s · La sembradora" },
   description: "Herramientas para tu sueldo, tu dinero y tus derechos como trabajadora del hogar.",
   applicationName: "La sembradora",
+  // En iPhone, al agregarla a inicio se abre como app y con su propio nombre.
+  appleWebApp: { capable: true, title: "Sembradora", statusBarStyle: "default" },
 };
 
 export const viewport: Viewport = {
